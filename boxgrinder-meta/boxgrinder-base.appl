@@ -1,0 +1,26 @@
+name: boxgrinder-base
+summary: Appliance template for BoxGrinder appliances
+os:
+  name: fedora
+  version: 15
+hardware:
+  memory: 256
+  partitions:
+    "/":
+      size: 1
+packages:
+  - @core
+  - openssh-clients
+  - which
+  - wget
+  - ntp
+post:
+  base:
+    - "echo -e '[boxgrinder-nightly]\nname=BoxGrinder Nightly builds for Fedora\nbaseurl=http://repo.ci.boxgrinder.org/fedora/14/RPMS/\nenabled=0\ngpgcheck=0' > /etc/yum.repos.d/boxgrinder-nightly.repo"
+    - "chkconfig ntpd on"
+repos:
+  - name: "boxgrinder-#BASE_ARCH#"
+    baseurl: "http://repo.boxgrinder.org/boxgrinder/packages/#OS_NAME#/#OS_VERSION#/RPMS/#BASE_ARCH#"
+  - name: "boxgrinder-noarch"
+    baseurl: "http://repo.boxgrinder.org/boxgrinder/packages/#OS_NAME#/#OS_VERSION#/RPMS/noarch"
+

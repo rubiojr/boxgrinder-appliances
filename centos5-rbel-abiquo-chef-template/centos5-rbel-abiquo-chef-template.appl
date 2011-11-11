@@ -1,0 +1,49 @@
+#
+# This definition will create a CentOS 5 appliance with 
+# Opscode Chef and the Abiquo Chef Agent ready to be deployed
+# in your Chef-enabled Abiquo platform.
+# 
+name: "centos5-#BASE_ARCH#-rbel-abiquo-chef-template"
+summary: Abiquo Chef Template based on CentOS 5
+
+os:
+  name: centos
+  version: 5
+  password: abiquo 
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+
+repos:
+  - name: "rbel5"
+    baseurl: "http://rbel.frameos.org/stable/el5/#BASE_ARCH#/"
+#
+# The packages we want to install.
+# All the packages in the @core group in this case
+#
+packages:
+  - @core
+  - rbel5-release
+  - rubygem-chef
+  - ntp
+  - which
+  - wget
+
+files:
+  "/etc/rc.d/init.d":
+    - abiquo-chef-run
+  "/etc/":
+    - dhclient.conf
+  "/root":
+    - clean.sh
+#
+# Run the Chef Server setup script after installing
+#
+post:
+  base:
+    - "/usr/bin/gem install abiquo-chef-agent --no-ri --no-rdoc"
+    - "/sbin/chkconfig --add abiquo-chef-run"
+    - "/sbin/chkconfig abiquo-chef-run on"
+

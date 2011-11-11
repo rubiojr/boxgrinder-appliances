@@ -1,0 +1,36 @@
+#
+# This definition will create a CentOS 5 appliance with 
+# Opscode Chef Server installed from RBEL Chef packages
+# 
+name: "centos5-#BASE_ARCH#-rbel-chef-server"
+summary: CentOS 5 Core with Opscode Chef Server installed
+
+os:
+  name: centos
+  version: 5
+  password: centos
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+
+repos:
+  - name: "rbel5"
+    baseurl: "http://rbel.frameos.org/stable/el5/#BASE_ARCH#/"
+#
+# The packages we want to install.
+# All the packages in the @core group in this case
+#
+packages:
+  - @core
+  - rbel5-release
+  - rubygem-chef-server
+
+#
+# Run the Chef Server setup script after installing
+#
+post:
+  base:
+    - "/usr/sbin/setup-chef-server.sh"
+

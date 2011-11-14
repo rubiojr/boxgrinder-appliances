@@ -1,0 +1,40 @@
+name: boxgrinder-meta-ubuntu-natty
+os:
+  name: ubuntu
+  version: natty
+
+packages:
+  - ubuntu-minimal
+  - exim4
+  - openssh-server
+  - ruby
+  - rubygems
+  - gcc
+  - make
+  - ruby-dev
+  - libxml2-dev
+  - libxslt-dev
+  - libsys-virt-perl 
+  - ubuntu-vm-builder
+  - libvirt-bin
+  - qemu-kvm
+  - augeas-lenses
+  - btrfs-tools
+  - cryptsetup
+  - diff
+  - jfsutils
+  - libhivex0
+  - ntfsprogs
+  - zfs-fuse
+  - zerofree
+  - scrub
+  - xfsprogs
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+
+files:
+  "/root":
+    - install.sh

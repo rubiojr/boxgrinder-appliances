@@ -3,15 +3,11 @@ os:
   name: ubuntu
   version: natty
 
-packages:
-  - openssh-server
-
 hardware:
   partitions:
     "/":
-      size: 5
-    "/opt":
-      size: 5
+      size: 10
+
 files:
   "/opt":
     - test.txt

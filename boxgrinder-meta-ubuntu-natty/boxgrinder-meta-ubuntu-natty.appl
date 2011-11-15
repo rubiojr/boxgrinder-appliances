@@ -5,12 +5,12 @@ os:
 
 packages:
   - grub-pc
+  - ubuntu-minimal
   - libaugeas0
   - lvm2
   - reiserfsprogs
   - dosfstools
   - ntfs-3g
-  - ubuntu-minimal
   - exim4
   - openssh-server
   - ruby

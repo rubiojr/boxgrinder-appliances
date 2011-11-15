@@ -36,6 +36,8 @@ packages:
   - zerofree
   - scrub
   - xfsprogs
+  - vim
+  - git
 
 hardware:
   partitions:

@@ -4,7 +4,6 @@ os:
   version: natty
 
 packages:
-  - grub-common
   - grub-pc
   - libaugeas0
   - lvm2

@@ -4,6 +4,13 @@ os:
   version: natty
 
 packages:
+  - grub-common
+  - grub-pc
+  - libaugeas0
+  - lvm2
+  - reiserfsprogs
+  - dosfstools
+  - ntfs-3g
   - ubuntu-minimal
   - exim4
   - openssh-server
@@ -34,6 +41,10 @@ hardware:
   partitions:
     "/":
       size: 10
+
+post:
+  base:
+    - "sh /root/install.sh"
 
 files:
   "/root":

@@ -1,14 +1,11 @@
 #
 # This boxgrinder appliance definition creates a boxgrinder-meta
-# appliance based on Ubuntu Natty
+# appliance based on Ubuntu Oneiric
 #
-# Run the /root/install.sh script after creating the appliance
-# to finish the installation
-# 
-name: boxgrinder-meta-ubuntu-natty
+name: boxgrinder-meta-ubuntu-oneiric
 os:
   name: ubuntu
-  version: natty
+  version: oneiric
 
 packages:
   - grub
@@ -37,7 +34,6 @@ packages:
   - diff
   - jfsutils
   - libhivex0
-  - ntfsprogs
   - zfs-fuse
   - zerofree
   - scrub

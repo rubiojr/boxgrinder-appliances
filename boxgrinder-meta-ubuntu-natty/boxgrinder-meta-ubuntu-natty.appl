@@ -4,7 +4,7 @@ os:
   version: natty
 
 packages:
-  - grub-pc
+  - grub
   - ubuntu-minimal
   - libaugeas0
   - lvm2
@@ -43,9 +43,11 @@ hardware:
     "/":
       size: 10
 
-post:
-  base:
-    - "sh /root/install.sh"
+# Can't install boxgrinder in post unfortunately
+# Affected by this http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=645119
+#post:
+#  base:
+#    - "sh /root/install.sh"
 
 files:
   "/root":

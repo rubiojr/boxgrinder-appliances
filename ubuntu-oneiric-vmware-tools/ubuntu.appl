@@ -1,0 +1,16 @@
+name: ubuntu-oneiric-vmware-tools
+os:
+  name: ubuntu
+  version: oneiric
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+
+packages:
+  - openssh-server
+
+files:
+  "/root":
+    - post.sh

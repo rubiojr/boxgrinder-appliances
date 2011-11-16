@@ -44,6 +44,8 @@ packages:
   - xfsprogs
   - vim
   - git
+  - libxml-xpath-perl
+  - libconfig8
 
 hardware:
   partitions:

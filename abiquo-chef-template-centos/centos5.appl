@@ -3,7 +3,7 @@
 # Opscode Chef and the Abiquo Chef Agent ready to be deployed
 # in your Chef-enabled Abiquo platform.
 # 
-name: "centos5-#BASE_ARCH#-rbel-abiquo-chef-template"
+name: "abiquo-chef-template-centos5"
 summary: Abiquo Chef Template based on CentOS 5
 
 os:

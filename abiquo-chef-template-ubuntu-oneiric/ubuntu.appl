@@ -1,0 +1,53 @@
+#
+# This definition will create a CentOS 6 appliance with 
+# Opscode Chef and the Abiquo Chef Agent ready to be deployed
+# in your Chef-enabled Abiquo platform.
+# 
+name: abiquo-chef-template-ubuntu-oneiric
+summary: "Abiquo Chef Template based on Ubuntu"
+version: 1
+release: 0
+
+os:
+  name: ubuntu
+  version: oneiric
+  password: abiquo 
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+
+#
+# The packages we want to install.
+# All the packages in the @core group in this case
+#
+packages:
+  - ubuntu-minimal
+  - rubygems
+  - ruby
+  - ntp
+  - wget
+  - ruby-dev
+  - build-essential
+  - libxml2-dev
+  - libxslt-dev
+
+#
+# We add the required files
+#
+files:
+  "/etc/init/":
+    - abiquo-chef-agent.conf
+  "/etc/dhcp/":
+    - dhclient.conf
+  "/root":
+    - clean.sh
+    - post.sh
+
+#
+# Run the Chef Server setup script after installing
+#
+post:
+  base:
+    - "/root/post.sh"

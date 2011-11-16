@@ -25,6 +25,7 @@ hardware:
 # All the packages in the @core group in this case
 #
 packages:
+  - openssh-server
   - ubuntu-minimal
   - rubygems
   - ruby
@@ -39,7 +40,7 @@ packages:
 # We add the required files
 #
 files:
-  "/etc/init/abiquo-chef-agent.conf":
+  "/etc/init/":
     - abiquo-chef-agent.conf.oneiric
   "/etc/dhcp/":
     - dhclient.conf

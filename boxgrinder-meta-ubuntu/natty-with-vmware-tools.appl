@@ -1,0 +1,60 @@
+#
+# This boxgrinder appliance definition creates a boxgrinder-meta
+# appliance based on Ubuntu Oneiric
+#
+name: boxgrinder-meta-ubuntu-natty-vmtools
+os:
+  name: ubuntu
+  version: natty
+
+packages:
+  - grub
+  - ubuntu-minimal
+  - libaugeas0
+  - lvm2
+  - reiserfsprogs
+  - dosfstools
+  - ntfs-3g
+  - exim4
+  - openssh-server
+  - ruby
+  - rubygems
+  - gcc
+  - make
+  - ruby-dev
+  - libxml2-dev
+  - libxslt-dev
+  - libsys-virt-perl 
+  - ubuntu-vm-builder
+  - libvirt-bin
+  - qemu-kvm
+  - augeas-lenses
+  - btrfs-tools
+  - cryptsetup
+  - diff
+  - jfsutils
+  - libhivex0
+  - zfs-fuse
+  - zerofree
+  - scrub
+  - xfsprogs
+  - vim
+  - git
+  - linux-headers-virtual
+  - open-vm-dkms
+  - open-vm-tools
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+    "swap":
+      size: 1
+
+post:
+  base:
+    - "sh /root/install.sh"
+
+files:
+  "/root":
+    - install.sh

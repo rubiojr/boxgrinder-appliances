@@ -1,0 +1,11 @@
+name: ubuntu-natty
+os:
+  name: ubuntu
+  version: natty
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+    "swap":
+      size: 1

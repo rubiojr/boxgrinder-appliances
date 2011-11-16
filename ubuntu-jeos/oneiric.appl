@@ -1,13 +1,12 @@
-name: ubuntu
+name: ubuntu-oneiric
 os:
   name: ubuntu
-  version: natty
+  version: oneiric 
 
 hardware:
   partitions:
     "/":
       size: 10
+    "swap":
+      size: 1
 
-files:
-  "/opt":
-    - test.txt

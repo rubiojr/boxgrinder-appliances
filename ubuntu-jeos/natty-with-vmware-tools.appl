@@ -9,3 +9,9 @@ hardware:
       size: 10
     "swap":
       size: 1
+
+packages:
+  - linux-headers-virtual
+  - open-vm-dkms
+  - open-vm-tools
+  - openssh-server

@@ -1,0 +1,35 @@
+#
+# This definition will create a CentOS 6 appliance with 
+# Opscode Chef Server installed from RBEL Chef packages
+# 
+name: "centos6-rbel-chef-server"
+summary: CentOS 6 Core with Opscode Chef Server installed
+
+os:
+  name: centos
+  version: 6
+  password: centos
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+
+repos:
+  - name: "rbel6"
+    baseurl: "http://rbel.frameos.org/stable/el6/#BASE_ARCH#/"
+#
+# The packages we want to install.
+# All the packages in the @core group in this case
+#
+packages:
+  - rbel6-release
+  - rubygem-chef-server
+
+#
+# Run the Chef Server setup script after installing
+#
+post:
+  base:
+    - "/usr/sbin/setup-chef-server.sh"
+

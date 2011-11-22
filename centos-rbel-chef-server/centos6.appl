@@ -29,7 +29,7 @@ packages:
 #
 # Run the Chef Server setup script after installing
 #
-post:
-  base:
-    - "/usr/sbin/setup-chef-server.sh"
+#post:
+#  base:
+#    - "/usr/sbin/setup-chef-server.sh"
 

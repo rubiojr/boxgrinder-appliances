@@ -1,0 +1,28 @@
+#
+# This definition will create a CentOS 5 appliance 
+# 
+name: "centos5-jeos"
+summary: CentOS 5 Core 
+
+os:
+  name: centos
+  version: 5
+  password: centos
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+
+repos:
+  - name: "rbel5"
+    baseurl: "http://rbel.frameos.org/stable/el5/#BASE_ARCH#/"
+
+#
+# The packages we want to install.
+# All the packages in the @core group in this case
+#
+packages:
+  - coreutils
+  - openssh-server
+

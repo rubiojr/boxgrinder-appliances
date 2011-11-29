@@ -29,7 +29,7 @@ packages:
   - openssh-server
 
 files:
-  "/usr/local/bin/"
+  "/usr/local/bin/":
     - ip-info  
 
 post:

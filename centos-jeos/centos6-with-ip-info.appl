@@ -1,0 +1,37 @@
+#
+# This definition will create a CentOS 6 appliance 
+# 
+name: "centos6-jeos"
+summary: CentOS 6 Core 
+
+os:
+  name: centos
+  version: 6
+  password: centos
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+    "swap":
+      size: 1
+
+repos:
+  - name: "rbel6"
+    baseurl: "http://rbel.frameos.org/stable/el6/#BASE_ARCH#/"
+
+#
+# The packages we want to install.
+# All the packages in the @core group in this case
+#
+packages:
+  - coreutils
+  - openssh-server
+
+files:
+  "/usr/local/bin/"
+    - ip-info  
+
+post:
+  base:
+    - "echo bash /usr/local/bin/ip-info >> /etc/rc.d/rc.local"

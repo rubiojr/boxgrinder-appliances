@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# Stupid bash daemon to output IP addresses to /etc/ip-info file
+# 
+INFO_FILE=/tmp/ip-info
+FREQ=15
+
+echo "Starting IP-INFO Daemon";
+ip addr list | grep "inet " | cut -d' ' -f6 | cut -d/ -f1 > $INFO_FILE
+
+while :; do 
+  sleep $FREQ; 
+  ip addr list | grep "inet " | cut -d' ' -f6 | cut -d/ -f1 > $INFO_FILE
+done & disown -h $!

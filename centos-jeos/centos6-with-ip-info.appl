@@ -1,7 +1,7 @@
 #
 # This definition will create a CentOS 6 appliance 
 # 
-name: "centos6-jeos"
+name: "centos6-jeos-with-ip-info"
 summary: CentOS 6 Core 
 
 os:

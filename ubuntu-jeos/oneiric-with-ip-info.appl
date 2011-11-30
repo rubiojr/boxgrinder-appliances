@@ -1,0 +1,26 @@
+name: ubuntu-oneiric-with-ip-info
+os:
+  name: ubuntu
+  version: oneiric 
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+    "swap":
+      size: 1
+
+packages:
+  - linux-headers-virtual
+  - open-vm-dkms
+  - open-vm-tools
+  - openssh-server
+
+files:
+  "/usr/local/bin/":
+    - ip-info  
+
+post:
+  base:
+    - "echo bash /usr/local/bin/ip-info > /etc/rc.local"
+    - "echo exit 0 >> /etc/rc.local"

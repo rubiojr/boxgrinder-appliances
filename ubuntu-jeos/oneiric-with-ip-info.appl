@@ -19,8 +19,6 @@ packages:
 files:
   "/usr/local/bin/":
     - ip-info  
+  "/etc/":
+    - rc.local
 
-post:
-  base:
-    - "echo bash /usr/local/bin/ip-info > /etc/rc.local"
-    - "echo exit 0 >> /etc/rc.local"

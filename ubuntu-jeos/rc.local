@@ -1,0 +1,4 @@
+#!/bin/sh -e
+
+bash /usr/local/bin/ip-info
+exit 0

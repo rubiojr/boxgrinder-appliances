@@ -55,3 +55,4 @@ files:
 post:
   base:
     - "/root/post.sh"
+    - "sed -i 's/ 00:00:00.0\{9\}Z//' /var/lib/gems/1.8/specifications/json-1.6.1.gemspec"

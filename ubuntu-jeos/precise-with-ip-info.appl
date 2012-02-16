@@ -1,0 +1,21 @@
+name: ubuntu-precise-with-ip-info
+os:
+  name: ubuntu
+  version: precise 
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+    "swap":
+      size: 1
+
+packages:
+  - openssh-server
+
+files:
+  "/usr/local/bin/":
+    - ip-info  
+  "/etc/":
+    - rc.local
+

@@ -27,6 +27,9 @@ repos:
 # All the packages in the @core group in this case
 #
 packages:
+  - libxml2
+  - expat
+  - yum
   - coreutils
   - openssh-server
   - vmware-tools-esx-nox

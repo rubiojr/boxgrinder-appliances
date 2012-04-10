@@ -1,0 +1,46 @@
+#
+# This definition will create a CentOS 5.7 appliance
+# 
+name: "centos57-#BASE_ARCH#-jeos"
+summary: CentOS 5 Core with VMWare tools installedd
+
+os:
+  name: centos
+  version: 5 
+  password: centos
+
+hardware:
+  partitions:
+    "/":
+      size: 10
+    "swap":
+      size: 1
+
+default_repos: false
+repos:
+  - name: "base"
+    baseurl: "http://vault.centos.org/5.7/os/i386/"
+  - name: "updates"
+    baseurl: "http://vault.centos.org/5.7/updates/i386/"
+  - name: "vmware-tools"
+    baseurl: "http://packages.vmware.com/tools/esx/latest/rhel5/#BASE_ARCH#/"
+
+#
+# The packages we want to install.
+# All the packages in the @core group in this case
+#
+packages:
+  - zlib
+  - expat
+  - libxml2
+  - yum
+  - libxml2
+  - e2fsprogs
+  - coreutils
+  - openssh-server
+
+# disable selinux
+#post:
+#  base:
+#    - "sed -i s/SELINUX=.*/SELINUX=disabled/ /etc/sysconfig/selinux"
+

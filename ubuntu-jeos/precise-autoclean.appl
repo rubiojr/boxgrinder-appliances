@@ -1,0 +1,26 @@
+name: ubuntu-precise
+os:
+  name: ubuntu
+  version: precise
+hardware:
+  partitions:
+    "/":
+      size: 10
+    "swap":
+      size: 1
+
+packages:
+  - openssh-server
+  - ubuntu-minimal
+
+files:
+  "/usr/local/bin/":
+    - cleanup.sh 
+  "/etc/init.d/":
+    - ssh_gen_host_keys
+
+post:
+  base:
+    - "bash /usr/local/bin/cleanup.sh"
+    - "chmod +x /etc/init.d/ssh_gen_host_keys"
+    - "update-rc.d ssh_gen_host_keys start 15 2 3 4 5 . stop 85 0 1 6 ."
